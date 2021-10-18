@@ -1,0 +1,7 @@
+{
+  "name": "ioGestor",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
