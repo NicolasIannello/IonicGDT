@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Gestor de Turnos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <h1>GDT</h1>
+      
+  <div class="form-outline">
+    <input type="text" id="user" class="form-control"/>
+    <label class="form-label" for="user">Nombre</label>
+  </div>
+  <div id="group2" class="form-outline input-group"> 
+    <input [type]=typecontra id="contra" class="form-control" />
+    <label class="form-label" for="contra">Contraseña</label>
+    <button id="Mostrar" class="btnMostrar" (click)=Mostrar()>Mostrar</button>
+  </div>
+  <button id="crearclie" name="crearclie" class="btnIniciar" (click)=EnviarIngreso()>
+    <span [class]=spinnerclie role="status" aria-hidden="true" id="spinnerclie">Iniciar Sesion</span>
+  </button>
+
+</ion-content>
