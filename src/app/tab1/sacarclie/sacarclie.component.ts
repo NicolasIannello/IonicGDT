@@ -106,10 +106,14 @@ export class SacarclieComponent implements OnInit {
               this.fechas=[]
               this.api.diaServicios(formData).subscribe(resp=>{
                 var diapasado=0
+                let mes={mes:""};
+                var ultmes="x";
+                console.log(resp);
+                
+
                 for (let i = 0; i < resp.length; i++) {
-                  let x=new Date(); let hoy=x.getDate() 
-                  let datomes={mes:'',cant:0,mesnum:0,dia:hoy,class:"",fecha:""};
-                  
+                  let x=new Date(); let hoy=x.getDate()-1 
+                  let datomes={dia:hoy,class:"",fecha:""};
                   
                   if( ( hoy<=new Date(resp[i].Dia).getDate() && new Date(x).getMonth()<=new Date(resp[i].Dia).getMonth() ) || new Date(x).getMonth()!=new Date(resp[i].Dia).getMonth() ){
                     /*switch(new Date(resp[i].Dia).getMonth()){
@@ -128,120 +132,28 @@ export class SacarclieComponent implements OnInit {
                     }*/
 
                     switch(new Date(resp[i].Dia).getMonth()){
-                      case 0:  
-                       
-                        break;
-                      case 1:  
-                        
-                        break;
-                      case 2:  
-                       
-                        break;
-                      case 3:  
-                       
-                        break;
-                      case 4:  
-                        
-                        break;
-                      case 5:  
-                       
-                        break;
-                      case 6:  
-                        
-                        break;
-                      case 7:  
-                        
-                        break;
-                      case 8:  
-                        
-                        break;
+                      case 0: diapasado=this.armarCalendario(diapasado,resp,datomes,i,31);break;
+                      case 1: diapasado=this.armarCalendario(diapasado,resp,datomes,i,28);break;
+                      case 2: diapasado=this.armarCalendario(diapasado,resp,datomes,i,31);break;
+                      case 3: diapasado=this.armarCalendario(diapasado,resp,datomes,i,30);break;
+                      case 4: diapasado=this.armarCalendario(diapasado,resp,datomes,i,31);break;
+                      case 5: diapasado=this.armarCalendario(diapasado,resp,datomes,i,30);break;
+                      case 6: diapasado=this.armarCalendario(diapasado,resp,datomes,i,31);break;
+                      case 7: diapasado=this.armarCalendario(diapasado,resp,datomes,i,31);break;
+                      case 8: diapasado=this.armarCalendario(diapasado,resp,datomes,i,30);break;
                       case 9:
-                        diapasado=this.armarCalendario(diapasado,resp,datomes,i,31)  
-                        /*if(i<resp.length-1){
-                          var sigdia=new Date(resp[i+1].Dia).getDate()+1
-                        }
-                        if(new Date(resp[i].Dia).getDate()+1>31){
-                          datomes = {mes:"Noviembre",cant:30,mesnum:11,dia: 1,class:"dia diaselected",fecha: resp[i].Dia}; 
-                          this.fechas.push(datomes);
-                          for (let j = 2; j < sigdia; j++) {                              
-                            datomes = {mes:"Noviembre",cant:30,mesnum:11,dia: j,class:"dia",fecha: ""};
-                            this.fechas.push(datomes); 
-                          }
-                        }else{
-                          datomes = {mes:"Octubre",cant:31,mesnum:10,dia: new Date(resp[i].Dia).getDate()+1,class:"dia diaselected",fecha: resp[i].Dia};
-                          this.fechas.push(datomes);
-                          if(i==resp.length-1 && new Date(resp[i].Dia).getDate()+1<31){
-                            for (let j = new Date(resp[i].Dia).getDate()+2; j <= 31; j++) {
-                              datomes = {mes:"Octubre",cant:31,mesnum:10,dia: j,class:"dia",fecha: ""};
-                              this.fechas.push(datomes); 
-                            }
-                          }else if(sigdia>new Date(resp[i].Dia).getDate()+1 && sigdia!=new Date(resp[i].Dia).getDate()+1){
-                            for (let j = new Date(resp[i].Dia).getDate()+2; j < sigdia; j++) {
-                              datomes = {mes:"Octubre",cant:31,mesnum:10,dia: j,class:"dia",fecha: ""};
-                              this.fechas.push(datomes); 
-                            }
-                          }
-                        }
-                        diapasado=new Date(resp[i].Dia).getDate()+1*/
+                        diapasado=this.armarCalendario(diapasado,resp,datomes,i,31); 
                         break;
-                      case 10: 
-                        diapasado=this.armarCalendario(diapasado,resp,datomes,i,30)
-                        /*if(i<resp.length-1){
-                          var sigdia=new Date(resp[i+1].Dia).getDate()+1
-                        }
-                        if(new Date(resp[i].Dia).getDate()+1>30){
-                          datomes = {mes:"Diciembre",cant:31,mesnum:12,dia: 1,class:"dia diaselected",fecha: resp[i].Dia}; 
-                          this.fechas.push(datomes);
-                          for (let j = 2; j < sigdia; j++) {                              
-                            datomes = {mes:"Diciembre",cant:31,mesnum:12,dia: j,class:"dia",fecha: ""};
-                            this.fechas.push(datomes); 
-                          }
-                        }else{
-                          if(diapasado>new Date(resp[i].Dia).getDate()+1){
-                            for (let j = 1; j < new Date(resp[i].Dia).getDate()+1; j++) {                              
-                              datomes = {mes:"Noviembre",cant:30,mesnum:11,dia: j,class:"dia",fecha: ""};
-                              this.fechas.push(datomes); 
-                            }
-                            datomes = {mes:"Noviembre",cant:30,mesnum:11,dia: new Date(resp[i].Dia).getDate()+1,class:"dia diaselected",fecha: resp[i].Dia};
-                            this.fechas.push(datomes);
-                            if(i==resp.length-1 && new Date(resp[i].Dia).getDate()+1<30){
-                              for (let j = new Date(resp[i].Dia).getDate()+2; j <= 30; j++) {
-                                datomes = {mes:"Noviembre",cant:30,mesnum:11,dia: j,class:"dia",fecha: ""};
-                                this.fechas.push(datomes); 
-                              }
-                            }else if(sigdia>new Date(resp[i].Dia).getDate()+1 && sigdia!=new Date(resp[i].Dia).getDate()+1 ){
-                              for (let j = new Date(resp[i].Dia).getDate()+2; j < sigdia; j++) {                              
-                                datomes = {mes:"Noviembre",cant:30,mesnum:11,dia: j,class:"dia",fecha: ""};
-                                this.fechas.push(datomes); 
-                              }
-                            }
-                          }else{
-                            datomes = {mes:"Noviembre",cant:30,mesnum:11,dia: new Date(resp[i].Dia).getDate()+1,class:"dia diaselected",fecha: resp[i].Dia};
-                            this.fechas.push(datomes);
-                            if(i==resp.length-1 && new Date(resp[i].Dia).getDate()+1<30){
-                              for (let j = new Date(resp[i].Dia).getDate()+2; j <= 30; j++) {
-                                datomes = {mes:"Noviembre",cant:30,mesnum:11,dia: j,class:"dia",fecha: ""};
-                                this.fechas.push(datomes); 
-                              }
-                            }else if(sigdia>new Date(resp[i].Dia).getDate()+1 && sigdia!=new Date(resp[i].Dia).getDate()+1 ){
-                              for (let j = new Date(resp[i].Dia).getDate()+2; j < sigdia; j++) {                              
-                                datomes = {mes:"Noviembre",cant:30,mesnum:11,dia: j,class:"dia",fecha: ""};
-                                this.fechas.push(datomes); 
-                              }
-                            }
-                          }
-                          
-                        }
-                        diapasado=new Date(resp[i].Dia).getDate()+1*/
+                      case 10:
+                        diapasado=this.armarCalendario(diapasado,resp,datomes,i,30); 
                         break;
-                      case 11: 
-                        
-                       
-                        break;
+                      case 11: diapasado=this.armarCalendario(diapasado,resp,datomes,i,31);break;
                     }
                   }
                 }
               })
+              console.log(this.fechas);
+              
             });
             this.marcadores.push(marker)
           },
@@ -297,18 +209,18 @@ export class SacarclieComponent implements OnInit {
   armarCalendario(diapasado,resp,datomes,i,cant){
     if(i<resp.length-1){
       var sigdia=new Date(resp[i+1].Dia).getDate()+1
-      console.log("sigdia:"+sigdia);
     }
-    if(new Date(resp[i].Dia).getDate()+1>cant){
+    if(new Date(resp[i].Dia).getDate()+1>cant){      
       datomes = {dia: 1,class:"dia diaselected",fecha: resp[i].Dia}; 
       this.fechas.push(datomes);
-      for (let j = 2; j < sigdia; j++) {                              
+      /*for (let j = 2; j < sigdia; j++) {                              
         datomes = {dia: j,class:"dia",fecha: ""};
         this.fechas.push(datomes); 
-      }
+      }*/
     }else{
       if(diapasado>new Date(resp[i].Dia).getDate()+1){
-        for (let j = 1; j < new Date(resp[i].Dia).getDate()+1; j++) {                            
+        for (let j = 1; j < new Date(resp[i].Dia).getDate()+1; j++) { 
+          console.log(new Date(resp[i].Dia).getDate()+1+" "+j);                           
           datomes = {dia: j,class:"dia",fecha: ""};
           this.fechas.push(datomes); 
         }
