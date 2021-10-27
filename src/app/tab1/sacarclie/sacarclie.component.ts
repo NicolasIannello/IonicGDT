@@ -302,19 +302,15 @@ export class SacarclieComponent implements OnInit {
     if(new Date(resp[i].Dia).getDate()+1>cant){
       datomes = {dia: 1,class:"dia diaselected",fecha: resp[i].Dia}; 
       this.fechas.push(datomes);
-      //console.log("1erIF new Date(resp[i].Dia).getDate()+1>cant datomes:"+datomes);
       for (let j = 2; j < sigdia; j++) {                              
         datomes = {dia: j,class:"dia",fecha: ""};
         this.fechas.push(datomes); 
-        console.log("1erFOR let j = 2; j < sigdia; j++ datomes:"+datomes);
       }
     }else{
       if(diapasado>new Date(resp[i].Dia).getDate()+1){
-        console.log("2doIF diapasado>new Date(resp[i].Dia).getDate()+1 diapasado:"+diapasado);
         for (let j = 1; j < new Date(resp[i].Dia).getDate()+1; j++) {                            
           datomes = {dia: j,class:"dia",fecha: ""};
           this.fechas.push(datomes); 
-          console.log("2doFOR let j = 1; j < new Date(resp[i].Dia).getDate()+1; j++ datomes:"+datomes);
         }
         datomes = {dia: new Date(resp[i].Dia).getDate()+1,class:"dia diaselected",fecha: resp[i].Dia};
         this.fechas.push(datomes);
