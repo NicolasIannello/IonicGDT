@@ -1,0 +1,41 @@
+<div class="container justify-content-center box">
+  <div class="reemp">Registro Empresa</div>
+  <div class="form-outline">
+    <input type="text" name="nomemp" class="form-control" [(ngModel)]=nombre/>
+    <label class="form-label" for="nomemp">Nombre de Empresa</label>
+  </div>
+  <div class="form-outline">
+    <input type="email" name="mailemp" class="form-control" [(ngModel)]=mail/>
+    <label class="form-label" for="mailemp">Email</label>
+  </div> 
+  <div class="form-outline input-group"> 
+    <input [type]=type name="contraemp" class="form-control" [(ngModel)]=contra/>
+    <label class="form-label" for="contraemp">Contraseña</label>
+    <button id="Mostrar" class="btnMostrar" (click)=Mostrar()>Mostrar</button>    
+  </div>  
+  <div class="form-outline input-group"> 
+    <input [type]=type2 name="contraemp2" class="form-control" [(ngModel)]=contra2/>
+    <label class="form-label" for="contraemp2">Confirmar contraseña</label>
+    <button id="Mostrar" class="btnMostrar" (click)=Mostrar2()>Mostrar</button>
+  </div>  
+  <select class="form-select border" id="localidademp"  onchange="Relocate()" (input)=loc()>
+    <option value="" hidden selected>Localidad</option>
+    <option *ngFor="let item of Localidades" value={{item.LocalidadID}}>{{item.Descripcion}}</option>
+  </select>
+  <div id="Mapa"></div>
+  <div>
+    <textarea name="ubicacion" class="form-control border" placeholder="Puede ingresar su domicilio aqui o indicarlo por medio del mapa" rows="4" cols="50" [(ngModel)]=ubicacion></textarea> 
+    <button class="btnubi" name="btnubi" (click)=ReGeo()>
+      <span class="" role="status" aria-hidden="true" id="spinnerubi">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-check" viewBox="0 0 16 16">
+          <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+        </svg>
+      </span>
+    </button>
+  </div>
+  <div>
+    <button id="crearemp" class="btnCrear" (click)=crearEmp()>
+      <span [class]=spinner role="status" aria-hidden="true" id="spinneremp">{{text}}</span>
+    </button>
+  </div>
+</div>

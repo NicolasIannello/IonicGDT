@@ -6,6 +6,9 @@ import { Tab1Page } from './tab1.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
+import { ClienteComponent } from './registro/cliente/cliente.component';
+import { EmpresaComponent } from './registro/empresa/empresa.component';
+import { SacarclieComponent } from './sacarclie/sacarclie.component';
 
 @NgModule({
   imports: [
@@ -15,6 +18,6 @@ import { Tab1PageRoutingModule } from './tab1-routing.module';
     ExploreContainerComponentModule,
     Tab1PageRoutingModule
   ],
-  declarations: [Tab1Page]
+  declarations: [Tab1Page,ClienteComponent,EmpresaComponent,SacarclieComponent]
 })
 export class Tab1PageModule {}

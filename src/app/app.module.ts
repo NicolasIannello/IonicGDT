@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
@@ -11,11 +13,10 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { FondoComponent } from './fondo/fondo.component';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 
-
 @NgModule({
   declarations: [
     AppComponent,
-    FondoComponent,
+    FondoComponent
   ],
   entryComponents: [],
   imports: [BrowserModule, 
@@ -23,7 +24,9 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
     AppRoutingModule,
     GoogleMapsModule,
     HttpClientModule,
-    HttpClientJsonpModule
+    HttpClientJsonpModule,
+    FormsModule,
+    CommonModule
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

@@ -6,7 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
+  div:string="box"
 
   constructor() {}
 
+  nav(){
+    if(this.div=="box"){
+      this.div="box marg"
+    }else if(this.div=="box marg"){
+      this.div="box"
+    }
+  }
 }

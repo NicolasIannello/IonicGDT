@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Sacar turno
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="box">
+    <div>
+      <div class="reemp">Busqueda de servicio</div>
+    </div>
+    <select class="form-select selec"  id="servicio" (input)=serv()>
+      <option value="" hidden selected>Tipo de servicio</option>
+      <option *ngFor="let item of servicios" value={{item.ServicioID}}>{{item.Descripcion}}</option>
+    </select>
+    <select class="form-select selec" id="localidademp" (input)=loc()>
+      <option value="" hidden selected>Localidades</option>
+      <option *ngFor="let item of localidades" value={{item.LocalidadID}}>{{item.Descripcion}}</option>
+    </select>
+    <button id="busserv" class="btnCrear" (click)=BServicio()>
+      <span [class]=spB role="status" aria-hidden="true" id="spinnerbuscar">{{spBtext}}</span>
+    </button>
+    <div class="reemp2">Busqueda de turno</div>
+    <div id="Mapa"></div>
+    <div id="calendario" class="selec date table-wrapper-scroll-y my-custom-scrollbar">
+      <div class="mes">{{nombreclicked}}</div>
+      <span *ngFor="let item of fechas">
+        <button [class]=item.class (click)="mostrarfecha(item.fecha)" >{{item.dia}}</button>
+      </span>
+    </div>
+    <select class="form-select selec"  id="horarios" (input)=hora()>
+      <option value="" hidden selected>Horarios del turno</option>
+      <option *ngFor="let item of horarios" value={{item.Horario}}>{{item.Horario}}</option>
+    </select>
+    <button id="sacar" class="btnCrear" (click)=crearTurno()>
+        <span [class]=screar role="status" aria-hidden="true" id="spinnersacar">{{screartext}}</span>
+    </button>
+  </div>
+</ion-content>

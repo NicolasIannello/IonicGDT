@@ -7,5 +7,20 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-router-outlet></ion-router-outlet>
+
+  <h1>GDT</h1>
+      
+  <div class="form-outline">
+    <input type="text" name="user" class="form-control" [(ngModel)]=user >
+    <label class="form-label" for="user">Nombre</label>
+  </div>
+  <div id="group2" class="form-outline input-group"> 
+    <input [type]=typecontra name="contra" class="form-control" [(ngModel)]=contra/>
+    <label class="form-label" for="contra">Contraseña</label>
+    <button id="Mostrar" class="btnMostrar" (click)=Mostrar()>Mostrar</button>
+  </div>
+  <button id="crearclie" name="crearclie" class="btnIniciar" (click)=EnviarIngreso()>
+    <span [class]=spinner role="status" aria-hidden="true" id="spinnerclie">{{text}}</span>
+  </button>
+
 </ion-content>

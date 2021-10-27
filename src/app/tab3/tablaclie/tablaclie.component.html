@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Turnos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  
+  <div class="box">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+          <tr>
+              <th>Fecha</th>
+              <th>Servicio</th>
+              <th>Horario Turno</th>
+              <th>Borrar</th>
+          </tr>
+          <tr *ngFor="let turno of Turnos">
+              <td>{{turno.Fecha}}</td>
+              <td>{{turno.Servicio}}</td>
+              <td>{{turno['Horario Turno']}}</td>
+              <button id=eliminar{{turno.Codigo}} class="btnElim" (click)="Eliminar(turno.Codigo)">
+                <ion-icon class="" name="trash" id=spinnerelim{{turno.Codigo}}></ion-icon>
+              </button>
+          </tr>
+      </thead> 
+  </table> 
+  </div>
+</ion-content>

@@ -1,17 +1,31 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Registro
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <div [class]=div>
+    <div>
+      <ul class="nav nav-tabs nav-justified">
+          <li class="nav-item">
+              <a class="nav-link" id="navemp" data-toggle="tab" href="#Empresa" aria-selected="true" (click)=nav()>Empresa</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link active" id="navclie" data-toggle="tab" href="#Cliente" aria-selected="false" (click)=nav()>Cliente</a>
+          </li>
+      </ul>
+    </div>
+  
+    <div class="tab-content">
+        <div class="tab-pane fade show" id="Empresa">
+          <app-empresa></app-empresa>
+        </div>
+        <div class="tab-pane fade show active" id="Cliente">
+          <app-cliente></app-cliente>
+        </div>
+    </div>
+  </div>
 </ion-content>

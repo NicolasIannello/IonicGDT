@@ -1,0 +1,32 @@
+<div class="container justify-content-center">
+  <div class="reemp">Registro Cliente</div>  
+  <div class="form-outline">
+    <input type="text" name="nomclie" class="form-control" [(ngModel)]=nombre/>
+    <label class="form-label" for="nomclie">Nombre</label>
+  </div>   
+  <div class="form-outline">
+    <input type="text" name="apeclie" class="form-control" [(ngModel)]=apellido />
+    <label class="form-label" for="apeclie">Apellido</label>
+  </div>   
+  <div class="form-outline">
+    <input type="text" name="userclie" class="form-control" [(ngModel)]=user/>
+    <label class="form-label" for="userclie">Nombre de usuario</label>
+  </div>  
+  <div class="form-outline input-group"> 
+    <input [type]=passclie id="passclie" class="form-control" [(ngModel)]=contra/>
+    <label class="form-label" for="passclie">Contraseña</label>
+    <button name="Mostrar" class="btnMostrar" (click)=Mostrar()>Mostrar</button>
+  </div>
+  <div class="form-outline input-group"> 
+    <input [type]=passclie2 id="contra" class="form-control" [(ngModel)]=contra2/>
+    <label class="form-label" for="contra">Contraseña</label>
+    <button id="Mostrar" class="btnMostrar" (click)=Mostrar2()>Mostrar</button>
+  </div>  
+  <div class="form-outline">
+    <input type="text" name="mailclie" class="form-control" [(ngModel)]=mail/>
+    <label class="form-label" for="mailclie">Email</label>
+  </div>   
+  <button class="btnCrear" id="crear" (click)=crearClie()>
+    <span [class]=spinner role="status" aria-hidden="true" id="spinnerclie">{{text}}</span>
+  </button>
+</div>

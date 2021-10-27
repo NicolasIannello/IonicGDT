@@ -1,0 +1,19 @@
+ion-content { 
+    --background: transparent;
+}
+div{
+    text-align: center;
+    background: rgb(236, 236, 236);
+    margin-top: 35%;
+    margin-left: 7%;
+    margin-right: 7%;
+    height: 50%;
+    display:grid;
+    place-items: center;
+    border-radius: 5px;
+}
+h1{
+    text-align: center;
+    color: rgb(1, 50, 67);
+    padding: 15px;
+}

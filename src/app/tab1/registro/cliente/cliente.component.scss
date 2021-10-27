@@ -1,21 +1,5 @@
-ion-content { 
-    --background: transparent;
-}
-h1{
-    color: white;
-    text-align: center;
-    font-size: 100px;
-}
-div{
-    background-color: white;
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 1.5rem;
-    border-bottom-left-radius: 0.5rem;
-    border-bottom-right-radius: 1.5rem;
-    width: 70%;
-    margin-left: 14%;
-    margin-top: 14%;
-    margin-bottom: 14%;
+input{
+    background-color: white !important;
 }
 .btnMostrar{
     float: none;
@@ -31,10 +15,12 @@ div{
 .btnMostrar:active{
     background: rgb(34, 49, 63);
 }
-.btnIniciar{
-    margin-left: 14%;
-    margin-top: 6%;
-    margin-bottom: 14%;
+div{
+    margin-top: 11px;
+    margin-bottom: 11px;
+}
+.btnCrear{
+    margin-top: 10%;
     font-size: 25px;
     width: 70%;
     height: 10%;
@@ -51,6 +37,10 @@ div{
     outline: none;
     padding: 1.5%;
 }
-.btnIniciar:active{
+.btnCrear:active{
     background: rgb(34, 49, 63);
+}
+.reemp{
+    font-weight: 600;
+    color: rgb(52, 73, 94);
 }

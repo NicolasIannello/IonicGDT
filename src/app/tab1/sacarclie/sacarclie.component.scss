@@ -1,0 +1,86 @@
+ion-content { 
+    --background: transparent;
+}
+.reemp{
+    font-weight: 600;
+    background-color: rgb(52, 73, 94);
+    color: rgb(236, 236, 236);
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.reemp2{
+    font-weight: 600;
+    background-color: rgb(52, 73, 94);
+    color: rgb(236, 236, 236);
+    margin-bottom: 11px;
+}
+.box{
+    text-align: center;
+    background: rgb(236, 236, 236);
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    border-radius: 5px;
+}
+select{
+    margin-left: 5%;
+    width: 90%;
+    margin-top: 11px;
+    margin-bottom: 11px;
+    border: none;
+}
+.btnCrear{
+    font-size: 20px;
+    width: 55%;
+    height: 7%;
+    float: none;
+    border: none;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+    color: rgb(236, 236, 236);
+    font-weight: 600;
+    cursor: pointer;
+    background: rgb(1, 50, 67);
+    outline: none;
+    padding: 1.5%;
+    margin-bottom: 11px;
+}
+.btnCrear:active{
+    background: rgb(34, 49, 63);
+}
+#Mapa{
+    height: 300px;
+    width: 300px;
+    margin-left: 11px;
+}
+.date{
+    border:1px solid black;
+    height: 300px;
+    width: 300px;
+    margin-left: 11px;
+    margin-top: 11px;
+}
+.mes{
+    text-align: center;
+    color:rgb(236, 236, 236);
+    background-color: rgb(34, 49, 63);
+    margin-top: 3.5%;
+}
+.dia{
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    width: 12%;
+    height: 12%;
+    background-color: rgb(236, 236, 236); 
+    color:rgb(34, 49, 63);
+    border:1px solid black;
+}
+.diaselected{
+    background-color: rgb(34, 49, 63);
+    color:rgb(236, 236, 236);
+}

@@ -1,0 +1,54 @@
+ion-content { 
+    --background: transparent;
+}
+h1{
+    color: rgb(236, 236, 236);
+    text-align: center;
+    font-size: 70px;
+    margin-top: 25%;
+}
+h2{
+    margin-top: 30%;
+    text-align: right;
+    color: rgb(1, 50, 67);
+    padding: 15px;
+}
+.rotate {
+    animation: rotation 1s infinite linear;
+}
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+div{
+    background: rgb(236, 236, 236);
+    margin-right: 7%;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.btnCuenta{
+    margin-top: 16%;
+    font-size: 25px;
+    width: 70%;
+    height: 10%;
+    border: none;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+    color: rgb(1, 50, 67);;
+    font-weight: 600;
+    cursor: pointer;
+    background: rgb(236, 236, 236);
+    outline: none;
+    padding: 1.5%;
+    display:grid;
+    place-items: center;
+}
+.btnCuenta:active{
+    background: rgb(189, 195, 199);
+}
