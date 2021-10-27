@@ -220,7 +220,6 @@ export class SacarclieComponent implements OnInit {
     }else{
       if(diapasado>new Date(resp[i].Dia).getDate()+1){
         for (let j = 1; j < new Date(resp[i].Dia).getDate()+1; j++) { 
-          console.log(new Date(resp[i].Dia).getDate()+1+" "+j);                           
           datomes = {dia: j,class:"dia",fecha: ""};
           this.fechas.push(datomes); 
         }
