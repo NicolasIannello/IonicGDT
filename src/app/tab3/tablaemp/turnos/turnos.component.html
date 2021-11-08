@@ -1,0 +1,33 @@
+<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+  <ion-refresher-content></ion-refresher-content>
+</ion-refresher>
+<table class="table table-bordered table-striped table-wrapper-scroll-y my-custom-scrollbar tabla">
+  <thead class="thead-dark">
+      <tr>
+          <th>Codigo</th>
+          <th>ID</th>
+          <th>Fecha</th>
+          <th>Horario</th>
+          <th>Cupos</th>
+      </tr>
+      <tr *ngFor="let turno of Turnos">
+          <td>{{turno['Codigo agrupador']}}</td>
+          <td>{{turno['ID Turno particular']}}</td>
+          <td>{{turno.Fecha}}</td>
+          <td>{{turno['Horario Turno']}}</td>
+          <td>{{turno['Cupos disponibles']}}</td>
+      </tr>
+  </thead> 
+</table> 
+<div class="elimturn">Eliminar turno</div> 
+<div id="divelim" class="input-group divelim">
+  <select class="form-select tipoelim" id="tipoelim" (input)=select()>
+      <option value="Codigo agrupador" selected>Codigo</option>
+      <option value="ID Turno particular">ID</option>
+      <option value="Fecha">Fecha</option>
+  </select>
+  <input [type]=typeDelim class="datoelim" id="datoelim" name="datoelim" [(ngModel)]=datoelim>
+</div>
+<button id="elim" class="elim" (click)="Eliminar()">
+  <span [class]=selimclass role="status" aria-hidden="true" id="spinnerclie">{{selim}}</span>
+</button>

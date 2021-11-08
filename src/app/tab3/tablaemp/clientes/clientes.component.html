@@ -1,0 +1,34 @@
+<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+  <ion-refresher-content></ion-refresher-content>
+</ion-refresher>
+<table class="table table-bordered table-striped table-wrapper-scroll-y my-custom-scrollbar tabla">
+  <thead class="thead-dark">
+      <tr>
+          <th>Fecha</th>
+          <th>Servicio</th>
+          <th>Horario</th>
+          <th class="td">Cliente</th>
+      </tr>
+      <tr *ngFor="let turno of Turnos">
+        <td>{{turno.Fecha}}</td>
+        <td>{{turno.Servicio}}</td>    
+        <td>{{turno['Horario turno']}}</td>
+        <td>{{turno.Cliente}}</td>
+      </tr>
+  </thead> 
+</table> 
+<div class="elimturn">Cargar Cliente</div> 
+<div id="dcarg" class="input-group dcarg">
+  <input type=date class="border bright" id="fecha" name="fecha" [(ngModel)]=fecha>
+  <select class="form-select border" id="serv" (input)=select()>
+    <option value="" hidden selected>Servicio</option>
+    <option *ngFor="let item of servicios" value={{item.ServicioID}}>{{item.Descripcion}}</option>
+  </select>
+</div>
+<div id="dcarg2" class="input-group dcarg">
+  <input type=time class="border bright" id="hora" name="hora" [(ngModel)]=hora>
+  <input type=text class="border" id="clie" name="clie" placeholder="Cliente" [(ngModel)]=cliente>
+</div>
+<button id="cargar" class="cargar" (click)="Cargar()">
+  <span [class]=scarclass role="status" aria-hidden="true" id="spinnerclie">{{scarg}}</span>
+</button>

@@ -6,57 +6,25 @@
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
-  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
 
   <div class="box">
     <div>
       <ul class="nav nav-tabs nav-justified">
           <li class="nav-item">
-              <a class="nav-link active" id="navemp" data-toggle="tab" href="#Empresa" aria-selected="true" (click)=nav()>Turnos</a>
+              <a class="nav-link active" id="navturnos" data-toggle="tab" href="#turnos" aria-selected="true">Turnos</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" id="navclie" data-toggle="tab" href="#Cliente" aria-selected="false" (click)=nav()>Clientes</a>
+              <a class="nav-link" id="navclientes" data-toggle="tab" href="#clientes" aria-selected="false">Clientes</a>
           </li>
       </ul>
     </div>
 
     <div class="tab-content">
-        <div class="tab-pane fade show active" id="Empresa">
-          <table class="table table-bordered table-striped table-wrapper-scroll-y my-custom-scrollbar tabla">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Codigo</th>
-                    <th>ID</th>
-                    <th>Fecha</th>
-                    <th>Horario</th>
-                    <th>Cupos</th>
-                </tr>
-                <tr *ngFor="let turno of Turnos">
-                    <td>{{turno['Codigo agrupador']}}</td>
-                    <td>{{turno['ID Turno particular']}}</td>
-                    <td>{{turno.Fecha}}</td>
-                    <td>{{turno['Horario Turno']}}</td>
-                    <td>{{turno['Cupos disponibles']}}</td>
-                </tr>
-            </thead> 
-          </table> 
-          <div class="elimturn">Eliminar turno</div> 
-          <div id="divelim" class="input-group divelim">
-            <select class="form-select tipoelim" id="tipoelim" (input)=select()>
-                <option value="Codigo agrupador" selected>Codigo agrupador</option>
-                <option value="ID Turno particular">ID Turno particular</option>
-                <option value="Fecha">Fecha</option>
-            </select>
-            <input [type]=typeDelim class="datoelim" id="datoelim" name="datoelim" [(ngModel)]=datoelim>
-          </div>
-          <button id="elim" class="elim" (click)="Eliminar()">
-            <span [class]=selimclass role="status" aria-hidden="true" id="spinnerclie">{{selim}}</span>
-          </button> 
+        <div class="tab-pane fade show active" id="turnos">
+          <app-turnos></app-turnos>
         </div>
-        <div class="tab-pane fade show" id="Cliente">
-          <app-cliente></app-cliente>
+        <div class="tab-pane fade show" id="clientes">
+          <app-clientes></app-clientes>
         </div>
     </div>
   

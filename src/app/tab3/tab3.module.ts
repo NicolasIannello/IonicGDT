@@ -9,6 +9,8 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 import { Tab3PageRoutingModule } from './tab3-routing.module';
 import { TablaclieComponent } from './tablaclie/tablaclie.component';
 import { TablaempComponent } from './tablaemp/tablaemp.component';
+import { TurnosComponent } from './tablaemp/turnos/turnos.component';
+import { ClientesComponent } from './tablaemp/clientes/clientes.component';
 
 @NgModule({
   imports: [
@@ -19,6 +21,6 @@ import { TablaempComponent } from './tablaemp/tablaemp.component';
     RouterModule.forChild([{ path: '', component: Tab3Page }]),
     Tab3PageRoutingModule,
   ],
-  declarations: [Tab3Page,TablaclieComponent,TablaempComponent]
+  declarations: [Tab3Page,TablaclieComponent,TablaempComponent,TurnosComponent,ClientesComponent]
 })
 export class Tab3PageModule {}

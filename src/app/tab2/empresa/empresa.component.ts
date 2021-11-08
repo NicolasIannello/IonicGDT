@@ -39,4 +39,10 @@ export class EmpresaComponent implements OnInit {
       this.refre=""
     })
   }
+
+  cerrarsesion(){
+    localStorage.removeItem('ID');
+		localStorage.removeItem('Tipo');
+		this.router.navigate(['']);
+  }
 }

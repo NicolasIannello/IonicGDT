@@ -11,16 +11,6 @@ ion-content {
     height: 92%;
     border-radius: 5px;
 }
-.my-custom-scrollbar {
-    position: relative;
-    overflow: auto;
-}
-.table-wrapper-scroll-y {
-    display: block;
-}
-.tabla{
-    height: 388px;
-}
 .nav-tabs{
     border: none;
     background: rgb(1, 50, 67);
@@ -37,30 +27,4 @@ ion-content {
 .nav-tabs .nav-link.active{
     color: rgb(1, 50, 67);
     border: 2px solid rgb(1, 50, 67);
-}
-.elimturn{
-    background-color: rgb(1, 50, 67);
-    color:rgb(236, 236, 236);
-}
-.divelim{
-    margin-top: 2%;
-    margin-left: 2%;
-}
-.datoelim{
-    width: 45%;
-    margin-right: 4%;
-    border: none;
-    border-top-right-radius: 1rem;
-}
-.tipoelim{
-    border-top-left-radius: 1rem;
-    border: none;
-}
-.elim{
-    background-color: rgb(1, 50, 67);
-    color:rgb(236, 236, 236);
-    border-bottom-left-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-    width: 96%;
-    height: 30px;
 }

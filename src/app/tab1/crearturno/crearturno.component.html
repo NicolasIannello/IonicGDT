@@ -1,3 +1,76 @@
-<p>
-  crearturno works!
-</p>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Generar Turnos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="box">
+    <div>
+      <div class="reemp">Crear Turnos</div>
+    </div>
+    <select class="form-select select"  id="servicio"  [(ngModel)]=servicio>
+      <option value="" hidden selected>Tipo de servicio</option>
+      <option *ngFor="let item of servicios" value={{item.ServicioID}}>{{item.Descripcion}}</option>
+    </select>
+    <div id="act" class="reemp">Dias de actividad</div>
+    <div class="checks">
+      <div class="inicio" id="checkdias">
+          <label>
+              <input type="checkbox" id="dia1" name="dia1" value="Monday" [(ngModel)]=dia1><span>L</span>
+          </label>
+      </div>
+      <div id="checkdias">
+          <label>
+              <input type="checkbox" id="dia2" name="dia2" value="Tuesday" [(ngModel)]=dia2><span>M</span>
+          </label>
+      </div>
+      <div id="checkdias">
+          <label>
+              <input type="checkbox" id="dia3" name="dia3" value="Wednesday" [(ngModel)]=dia3><span>M</span>
+          </label>
+      </div>
+      <div id="checkdias">
+          <label>
+              <input type="checkbox" id="dia4" name="dia4" value="Thursday" [(ngModel)]=dia4><span>J</span>
+          </label>
+      </div>
+      <div id="checkdias">
+          <label>
+              <input type="checkbox" id="dia5" name="dia5" value="Friday" [(ngModel)]=dia5><span>V</span>
+          </label>
+      </div>
+      <div id="checkdias">
+          <label>
+              <input type="checkbox" id="dia6" name="dia6" value="Saturday" [(ngModel)]=dia6><span>S</span>
+          </label>
+      </div>
+      <div class="fin" id="checkdias">
+          <label>
+              <input type="checkbox" id="dia7" name="dia7" value="Sunday" [(ngModel)]=dia7><span>D</span>
+          </label>
+      </div>
+    </div>
+    <br><br>
+    <div id="act" class="reemp">Fecha de de finalizacion</div>
+    <input type="date" class="select" id="fechafin" [(ngModel)]=fechafin>
+    <select class="form-select select"  id="duracion" [(ngModel)]=duracion>
+      <option value="" hidden selected>Duracion del turno</option>
+      <option value="15">15</option>
+      <option value="30">30</option>
+      <option value="60">60</option>
+    </select>
+    <input type="text" class="select" id="capacidad" placeholder="Capacidad de clientes por turno" [(ngModel)]=capacidad>
+    <div id="act" class="reemp">Horarios de actividad</div>
+    <div id="horarios" class="input-group">
+      <span class="spcap inicio" >Desde</span>
+      <input type="time" class="horas" [(ngModel)]=horainicio>
+      <span class="spcap" >Hasta</span>
+      <input type="time" class="horas fin" [(ngModel)]=horafin>
+    </div>
+    <button id="sacar" class="btnCrear" (click)=crearTurno()>
+        <span [class]=screar role="status" aria-hidden="true" id="spinnersacar">{{screartext}}</span>
+    </button>
+  </div>
+</ion-content>

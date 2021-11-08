@@ -1,0 +1,52 @@
+.my-custom-scrollbar {
+    position: relative;
+    overflow: auto;
+}
+.table-wrapper-scroll-y {
+    display: block;
+}
+.tabla{
+    height: 340px;
+}
+.td{
+    width: 24.6%;
+}
+.elimturn{
+    background-color: rgb(1, 50, 67);
+    color:rgb(236, 236, 236);
+}
+.dcarg{
+    margin-left: 2%;
+}
+#dcarg{
+    margin-top: 2%;
+}
+.border{
+    border: none;
+    height: 40px;
+    text-align: center;
+}
+.bright{
+    border-right: solid 1px;
+}
+#serv{
+    margin-right: 4%;
+    border-top-right-radius: 1rem;
+}
+#hora{
+    width: 48.8%;
+}
+#clie{
+    width: 47.3%;
+}
+#fecha{
+    border-top-left-radius: 1rem;
+}
+.cargar{
+    background-color: rgb(1, 50, 67);
+    color:rgb(236, 236, 236);
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    width: 96%;
+    height: 30px;
+}

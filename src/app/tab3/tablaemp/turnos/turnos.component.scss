@@ -1,0 +1,38 @@
+.my-custom-scrollbar {
+    position: relative;
+    overflow: auto;
+}
+.table-wrapper-scroll-y {
+    display: block;
+}
+.tabla{
+    height: 388px;
+}
+.elimturn{
+    background-color: rgb(1, 50, 67);
+    color:rgb(236, 236, 236);
+}
+.divelim{
+    margin-top: 2%;
+    margin-left: 2%;
+}
+.datoelim{
+    width: 60%;
+    margin-right: 4%;
+    border: none;
+    border-top-right-radius: 1rem;
+    text-align: center;
+}
+.tipoelim{
+    border-top-left-radius: 1rem;
+    border: none;
+    border-right: solid 1px;
+}
+.elim{
+    background-color: rgb(1, 50, 67);
+    color:rgb(236, 236, 236);
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    width: 96%;
+    height: 30px;
+}

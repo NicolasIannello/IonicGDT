@@ -1,0 +1,118 @@
+ion-content { 
+    --background: transparent;
+}
+.reemp{
+    font-weight: 600;
+    background-color: rgb(52, 73, 94);
+    color: rgb(236, 236, 236);
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.box{
+    text-align: center;
+    background: rgb(236, 236, 236);
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    border-radius: 5px;
+}
+.select{
+    margin-left: 5%;
+    width: 90%;
+    margin-top: 11px;
+    margin-bottom: 11px;
+    border: none;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    height: 38px;
+    text-align: center;
+}
+.btnCrear{
+    font-size: 25px;
+    width: 60%;
+    height: 9%;
+    float: none;
+    border: none;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+    color: rgb(236, 236, 236);
+    font-weight: 600;
+    cursor: pointer;
+    background: rgb(1, 50, 67);
+    outline: none;
+    padding: 2.5%;
+    margin-bottom: 11px;
+}
+.btnCrear:active{
+    background: rgb(34, 49, 63);
+}
+#act{
+    border-top-left-radius: 0rem;
+    border-top-right-radius: 0rem;
+}
+#checkdias {
+    border:1px solid #D0D0D0;
+    overflow:auto;
+    float:left;
+}
+#checkdias label {
+    float:left;
+    /*width:1.8em;
+    height: 1.1em;*/
+    width:3em;
+    height: 2em;
+}
+#checkdias label span {
+    text-align:center;
+    padding:11px 0px;
+    display:block;
+    height: 2.5em;
+}
+#checkdias label input {
+    position:absolute;
+    top:-80px;
+}
+#checkdias input:checked + span {
+    background-color:rgb(1, 50, 67);
+    color: rgb(236, 236, 236);
+}
+#dias{
+width: 15%;
+}
+.checks{
+    margin-top: 11px;
+    margin-left: 2%;
+}
+.fin{
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+.inicio{
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+#fechafin{
+    margin-left: 0%;
+}
+#horarios{
+    margin-top: 3%;
+    margin-left: 40px;
+    margin-bottom: 5%;
+}
+.spcap{
+    background-color:rgb(1, 50, 67);
+    color: rgb(236, 236, 236);
+    text-align: center;
+    width: 70px;
+    height: 38px;
+    padding:7px 0px;
+}
+.horas{
+    border: none;
+    text-align: center;
+}
