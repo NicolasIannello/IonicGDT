@@ -1,0 +1,42 @@
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { EmpresaService } from 'src/app/servicios/empresa.service';
+
+@Component({
+  selector: 'app-empresa',
+  templateUrl: './empresa.component.html',
+  styleUrls: ['./empresa.component.scss'],
+})
+export class EmpresaComponent implements OnInit {
+  ID: string = JSON.parse(localStorage.getItem('ID') || '{}');
+  User: Array<any> = [{ NombreUsuario: "Usuario" }];
+  cant:number|string="";
+  refre:string=""
+
+  constructor(private router: Router,public api:EmpresaService) { }
+
+  ngOnInit() {
+    if (localStorage.getItem('Tipo') != 'empresa') {
+			this.router.navigate(['']);
+		}
+		const formData = new FormData
+		formData.append("ID", this.ID);
+
+    this.api.traernom(formData).subscribe(resp=>{
+      this.User=resp;
+    })
+
+		this.api.CargarTurnos(formData).subscribe(resp =>
+			this.cant = resp.length
+		)
+  }
+  refresh(){
+    this.refre="rotate"
+    const formData = new FormData
+		formData.append("ID", this.ID);
+    this.api.CargarTurnos(formData).subscribe(resp=>{
+      this.cant=resp.length
+      this.refre=""
+    })
+  }
+}

@@ -84,3 +84,10 @@ select{
     background-color: rgb(34, 49, 63);
     color:rgb(236, 236, 236);
 }
+.my-custom-scrollbar {
+    position: relative;
+    overflow: auto;
+}
+.table-wrapper-scroll-y {
+    display: block;
+}

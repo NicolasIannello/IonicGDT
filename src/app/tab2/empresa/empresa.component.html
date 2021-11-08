@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Gestor de Turnos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <h1>{{User[0].NombreUsuario}}</h1>
+      
+  <div>
+    <h2 >
+      Turnos: {{cant}} 
+      <button (click)=refresh()>
+        <ion-icon name="refresh-circle-outline" [class]=refre></ion-icon>  
+      </button>
+    </h2>
+  </div>  
+  <button class="mx-auto btnCuenta" id="cuenta" (click)=cerrarsesion()>Cerrar sesion</button>
+
+</ion-content>

@@ -26,7 +26,13 @@
     <div id="calendario" class="selec date table-wrapper-scroll-y my-custom-scrollbar">
       <div class="mes">{{nombreclicked}}</div>
       <span *ngFor="let item of fechas">
-        <button [class]=item.class (click)="mostrarfecha(item.fecha)" >{{item.dia}}</button>
+        <div *ngIf="item.mes; then thenBlock else elseBlock"></div>
+        <ng-template #thenBlock>
+          <div class="mes">{{item.mes}}</div>
+        </ng-template>
+        <ng-template #elseBlock>
+          <button [class]=item.class (click)="mostrarfecha(item.fecha)" >{{item.dia}}</button>
+        </ng-template>
       </span>
     </div>
     <select class="form-select selec"  id="horarios" (input)=hora()>

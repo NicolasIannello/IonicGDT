@@ -25,7 +25,7 @@ export class SacarclieComponent implements OnInit {
   respuesta:Array<any>=[];
   nombreclicked:string="Calendario";
   fechas:Array<any>=[];
-  mascal:string="a";
+  mes:string="a";
 
   spB:string="";
   spBtext:string="Buscar servicio";
@@ -132,22 +132,18 @@ export class SacarclieComponent implements OnInit {
                     }*/
 
                     switch(new Date(resp[i].Dia).getMonth()){
-                      case 0: diapasado=this.armarCalendario(diapasado,resp,datomes,i,31);break;
-                      case 1: diapasado=this.armarCalendario(diapasado,resp,datomes,i,28);break;
-                      case 2: diapasado=this.armarCalendario(diapasado,resp,datomes,i,31);break;
-                      case 3: diapasado=this.armarCalendario(diapasado,resp,datomes,i,30);break;
-                      case 4: diapasado=this.armarCalendario(diapasado,resp,datomes,i,31);break;
-                      case 5: diapasado=this.armarCalendario(diapasado,resp,datomes,i,30);break;
-                      case 6: diapasado=this.armarCalendario(diapasado,resp,datomes,i,31);break;
-                      case 7: diapasado=this.armarCalendario(diapasado,resp,datomes,i,31);break;
-                      case 8: diapasado=this.armarCalendario(diapasado,resp,datomes,i,30);break;
-                      case 9:
-                        diapasado=this.armarCalendario(diapasado,resp,datomes,i,31); 
-                        break;
-                      case 10:
-                        diapasado=this.armarCalendario(diapasado,resp,datomes,i,30); 
-                        break;
-                      case 11: diapasado=this.armarCalendario(diapasado,resp,datomes,i,31);break;
+                      case 0: diapasado=this.armarCalendario(diapasado,resp,datomes,i,31,"Enero","Febrero");break;
+                      case 1: diapasado=this.armarCalendario(diapasado,resp,datomes,i,28,"Febrero","Marzo");break;
+                      case 2: diapasado=this.armarCalendario(diapasado,resp,datomes,i,31,"mes","messig");break;
+                      case 3: diapasado=this.armarCalendario(diapasado,resp,datomes,i,30,"mes","messig");break;
+                      case 4: diapasado=this.armarCalendario(diapasado,resp,datomes,i,31,"mes","messig");break;
+                      case 5: diapasado=this.armarCalendario(diapasado,resp,datomes,i,30,"mes","messig");break;
+                      case 6: diapasado=this.armarCalendario(diapasado,resp,datomes,i,31,"mes","messig");break;
+                      case 7: diapasado=this.armarCalendario(diapasado,resp,datomes,i,31,"mes","messig");break;
+                      case 8: diapasado=this.armarCalendario(diapasado,resp,datomes,i,30,"Septiembre","Octubre");break;
+                      case 9: diapasado=this.armarCalendario(diapasado,resp,datomes,i,31,"Octubre","Noviembre");break;
+                      case 10: diapasado=this.armarCalendario(diapasado,resp,datomes,i,31,"Noviembre","Diciembre");break;
+                      case 11: diapasado=this.armarCalendario(diapasado,resp,datomes,i,31,"Diciembre","Enero");break;
                     }
                   }
                 }
@@ -164,15 +160,19 @@ export class SacarclieComponent implements OnInit {
     }
   }
   mostrarfecha(dia:any){
-    this.dia=dia
+    if(dia==""){
+      alert("Dia no disponible")
+    }else{
+      this.dia=dia
     
-    var dato=new FormData();
-    dato.append("fecha",dia);
-    dato.append("nom",this.nombreclicked);
-
-    this.api.horarios(dato).subscribe(resp=>{
-      this.horarios=resp      
-    })
+      var dato=new FormData();
+      dato.append("fecha",dia);
+      dato.append("nom",this.nombreclicked);
+  
+      this.api.horarios(dato).subscribe(resp=>{
+        this.horarios=resp      
+      })
+    }
   }
   hora(){
     this.horario=(<HTMLInputElement>document.getElementById("horarios")).value
@@ -206,7 +206,17 @@ export class SacarclieComponent implements OnInit {
       this.screartext="Sacar turno";
     })
   }
-  armarCalendario(diapasado,resp,datomes,i,cant){
+  armarCalendario(diapasado,resp,datomes,i,cant,mes,messig){
+    if(this.mes!=mes && new Date(resp[i].Dia).getDate()+1>cant){
+      var x = {mes: messig}; 
+      this.fechas.push(x);
+      this.mes=messig
+    }else if (this.mes!=mes){
+      var x = {mes: mes}; 
+      this.fechas.push(x);
+      this.mes=mes
+    }
+
     if(i<resp.length-1){
       var sigdia=new Date(resp[i+1].Dia).getDate()+1
     }

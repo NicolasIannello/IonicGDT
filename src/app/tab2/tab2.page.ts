@@ -21,6 +21,8 @@ export class Tab2Page {
   ngOnInit() {
     if(localStorage.getItem('Tipo')=='cliente'){
       this.router.navigate(['/tabs/tab2/cliente']);
+    }else if(localStorage.getItem('Tipo')=='empresa'){
+      this.router.navigate(['/tabs/tab2/empresa']);
     }
   }
 
@@ -50,7 +52,7 @@ export class Tab2Page {
             this.text = "Iniciar Sesion";
             localStorage.setItem('Tipo',texto.Tipo);
             localStorage.setItem('ID',texto.ID);
-            //this.router.navigate(['/Empresa']);
+            this.router.navigate(['/tabs/tab2/empresa']);
         }else{
             alert(texto);
             this.spinner = "";
