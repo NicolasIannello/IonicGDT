@@ -10,11 +10,11 @@
     <div>
       <div class="reemp">Busqueda de servicio</div>
     </div>
-    <select class="form-select selec"  id="servicio" (input)=serv()>
+    <select class="form-select selec"  id="servicio" [(ngModel)]=servicio><!--(input)=serv()(input)=loc()-->
       <option value="" hidden selected>Tipo de servicio</option>
       <option *ngFor="let item of servicios" value={{item.ServicioID}}>{{item.Descripcion}}</option>
     </select>
-    <select class="form-select selec" id="localidademp" (input)=loc()>
+    <select class="form-select selec" id="localidademp" [(ngModel)]=localidad>
       <option value="" hidden selected>Localidades</option>
       <option *ngFor="let item of localidades" value={{item.LocalidadID}}>{{item.Descripcion}}</option>
     </select>

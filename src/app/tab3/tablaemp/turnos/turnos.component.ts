@@ -43,7 +43,6 @@ export class TurnosComponent implements OnInit {
 			alert("Ingrese el dato para eliminar")
 		} else {
 			if (confirm('Esta por eliminar un turno. Presione aceptar para continuar')) {
-				(<HTMLInputElement>document.getElementById('datoelim')).disabled = true;
 				this.selimclass = "spinner-border spinner-border-sm";
 				this.selim = "";
 
@@ -59,7 +58,6 @@ export class TurnosComponent implements OnInit {
 						alert("Turnos eliminados")
 						this.Turnos = resp
 					}
-					(<HTMLInputElement>document.getElementById('datoelim')).disabled = false;
 					this.selimclass = "";
 					this.selim = "Eliminar turnos";
 				})
@@ -68,7 +66,6 @@ export class TurnosComponent implements OnInit {
   }
 
   select(){
-    this.tipoelim=(<HTMLInputElement>document.getElementById("tipoelim")).value;
     if(this.tipoelim=="Fecha"){
       this.typeDelim="date"
       this.datoelim=""

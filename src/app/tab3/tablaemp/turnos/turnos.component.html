@@ -21,12 +21,12 @@
 </table> 
 <div class="elimturn">Eliminar turno</div> 
 <div id="divelim" class="input-group divelim">
-  <select class="form-select tipoelim" id="tipoelim" (input)=select()>
+  <select class="form-select tipoelim" id="tipoelim" (change)=select() [(ngModel)]=tipoelim>
       <option value="Codigo agrupador" selected>Codigo</option>
       <option value="ID Turno particular">ID</option>
       <option value="Fecha">Fecha</option>
   </select>
-  <input [type]=typeDelim class="datoelim" id="datoelim" name="datoelim" [(ngModel)]=datoelim>
+  <input [type]=typeDelim class="datoelim" id="datoelim" name="datoelim" [(ngModel)]=datoelim placeholder="dato">
 </div>
 <button id="elim" class="elim" (click)="Eliminar()">
   <span [class]=selimclass role="status" aria-hidden="true" id="spinnerclie">{{selim}}</span>

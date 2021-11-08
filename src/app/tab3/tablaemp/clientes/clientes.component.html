@@ -20,7 +20,7 @@
 <div class="elimturn">Cargar Cliente</div> 
 <div id="dcarg" class="input-group dcarg">
   <input type=date class="border bright" id="fecha" name="fecha" [(ngModel)]=fecha>
-  <select class="form-select border" id="serv" (input)=select()>
+  <select class="form-select border" id="serv" [(ngModel)]=servicio>
     <option value="" hidden selected>Servicio</option>
     <option *ngFor="let item of servicios" value={{item.ServicioID}}>{{item.Descripcion}}</option>
   </select>

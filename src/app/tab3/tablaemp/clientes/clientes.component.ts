@@ -32,10 +32,6 @@ export class ClientesComponent implements OnInit {
     )
   }
 
-  select(){
-    this.servicio=(<HTMLInputElement>document.getElementById("serv")).value;
-  }
-
   doRefresh(event) {
     console.log('Begin async operation');
     const formData = new FormData

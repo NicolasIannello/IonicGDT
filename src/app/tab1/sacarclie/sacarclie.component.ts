@@ -53,12 +53,12 @@ export class SacarclieComponent implements OnInit {
 		);  
   }
 
-  serv(){
+  /*serv(){
     this.servicio=(<HTMLInputElement>document.getElementById("servicio")).value
   }
   loc(){
     this.localidad=(<HTMLInputElement>document.getElementById("localidademp")).value
-  }
+  }*/
   BServicio(){
     if(this.servicio=="" || this.localidad==""){
       alert("Complete servicio y localidad");
