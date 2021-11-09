@@ -10,24 +10,30 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
   
-  <div class="box">
-    <table class="table table-bordered table-striped">
+  <div [class]="claseBox">
+    <table [class]="claseTabla">
       <thead class="thead-dark">
           <tr>
+              <th *ngIf="claseBox=='box box90'">ID</th>
               <th>Fecha</th>
+              <th *ngIf="claseBox=='box box90'">Comercio</th>
               <th>Servicio</th>
               <th>Horario Turno</th>
+              <th *ngIf="claseBox=='box box90'">Ubicacion</th>
               <th>Borrar</th>
           </tr>
+      </thead> 
           <tr *ngFor="let turno of Turnos">
+              <td *ngIf="claseBox=='box box90'">{{turno.Codigo}}</td>
               <td>{{turno.Fecha}}</td>
+              <td *ngIf="claseBox=='box box90'">{{turno.Comercio}}</td>
               <td>{{turno.Servicio}}</td>
               <td>{{turno['Horario Turno']}}</td>
+              <td id="ubi" *ngIf="claseBox=='box box90'">{{turno.Ubicacion}}</td>
               <button id=eliminar{{turno.Codigo}} class="btnElim" (click)="Eliminar(turno.Codigo)">
                 <ion-icon class="" name="trash" id=spinnerelim{{turno.Codigo}}></ion-icon>
               </button>
           </tr>
-      </thead> 
-  </table> 
+    </table> 
   </div>
 </ion-content>

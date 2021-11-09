@@ -9,13 +9,14 @@
           <th>Horario</th>
           <th class="td">Cliente</th>
       </tr>
+    </thead> 
       <tr *ngFor="let turno of Turnos">
         <td>{{turno.Fecha}}</td>
         <td>{{turno.Servicio}}</td>    
         <td>{{turno['Horario turno']}}</td>
         <td>{{turno.Cliente}}</td>
       </tr>
-  </thead> 
+  
 </table> 
 <div class="elimturn">Cargar Cliente</div> 
 <div id="dcarg" class="input-group dcarg">

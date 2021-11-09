@@ -19,3 +19,27 @@ ion-content {
 .btnElim:active{
     background-color:rgb(126, 22, 19);
 }
+.my-custom-scrollbar {
+    position: relative;
+    overflow: auto;
+}
+.table-wrapper-scroll-y {
+    display: block;
+}
+.tabla{
+    height: 567px;
+}
+.tabla90{
+    height: 274px;
+}
+.thead-dark{
+    position:sticky; 
+    top:0;
+}
+.box90{
+    margin-top: 1.5% !important;
+    margin-bottom: 1.5% !important;
+}
+#ubi{
+    font-size: 10px;
+}

@@ -10,6 +10,7 @@
           <th>Horario</th>
           <th>Cupos</th>
       </tr>
+    </thead>
       <tr *ngFor="let turno of Turnos">
           <td>{{turno['Codigo agrupador']}}</td>
           <td>{{turno['ID Turno particular']}}</td>
@@ -17,7 +18,7 @@
           <td>{{turno['Horario Turno']}}</td>
           <td>{{turno['Cupos disponibles']}}</td>
       </tr>
-  </thead> 
+   
 </table> 
 <div class="elimturn">Eliminar turno</div> 
 <div id="divelim" class="input-group divelim">

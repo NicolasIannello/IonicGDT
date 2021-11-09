@@ -9,6 +9,8 @@ import { ClienteService } from 'src/app/servicios/cliente.service';
 export class TablaclieComponent implements OnInit {
   ID: string = JSON.parse(localStorage.getItem('ID') || '{}');
   Turnos:Array<any>=[];
+  claseTabla:string="table table-bordered table-striped table-wrapper-scroll-y my-custom-scrollbar tabla"
+  claseBox:string="box"
 
   constructor(public api:ClienteService) { }
 
@@ -19,6 +21,24 @@ export class TablaclieComponent implements OnInit {
     this.api.cargarTurnos(formData).subscribe(resp=>{
       this.Turnos=resp
     })
+    
+    if(screen.orientation.angle==90){
+      this.claseTabla="table table-bordered table-striped table-wrapper-scroll-y my-custom-scrollbar tabla90"
+      this.claseBox="box box90"
+    }else{
+      this.claseTabla="table table-bordered table-striped table-wrapper-scroll-y my-custom-scrollbar tabla"
+      this.claseBox="box"
+    }
+
+    window.addEventListener("orientationchange", ()=>{
+      if(screen.orientation.angle==90){
+        this.claseTabla="table table-bordered table-striped table-wrapper-scroll-y my-custom-scrollbar tabla90"
+        this.claseBox="box box90"
+      }else{
+        this.claseTabla="table table-bordered table-striped table-wrapper-scroll-y my-custom-scrollbar tabla"
+        this.claseBox="box"
+      }
+    });
   }
   Eliminar(id:any){
     if(confirm('Esta por eliminar un turno. Presione aceptar para continuar')){
