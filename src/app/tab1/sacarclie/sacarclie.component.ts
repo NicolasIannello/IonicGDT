@@ -30,7 +30,11 @@ export class SacarclieComponent implements OnInit {
   spB:string="";
   spBtext:string="Buscar servicio";
   screar:string="";
-  screartext:string="Sacar turno"
+  screartext:string="Sacar turno";
+
+  diacss:string="dia"
+  diaselecss:string="dia diaselected"
+  claseant:string=""
 
   constructor(public api:ClienteService) { }
 
@@ -108,7 +112,7 @@ export class SacarclieComponent implements OnInit {
                 var diapasado=0
                 let mes={mes:""};
                 var ultmes="x";
-                console.log(resp);
+                //console.log(resp);
                 
 
                 for (let i = 0; i < resp.length; i++) {
@@ -148,7 +152,7 @@ export class SacarclieComponent implements OnInit {
                   }
                 }
               })
-              console.log(this.fechas);
+              //console.log(this.fechas);
               
             });
             this.marcadores.push(marker)
@@ -159,11 +163,16 @@ export class SacarclieComponent implements OnInit {
       })
     }
   }
-  mostrarfecha(dia:any){
+  mostrarfecha(dia:any,clase:any){
+    if(this.dia!=''){
+      document.getElementById(this.dia).className=this.claseant;
+    }
     if(dia==""){
       alert("Dia no disponible")
+      this.horarios=[]
     }else{
       this.dia=dia
+      this.claseant=clase
     
       var dato=new FormData();
       dato.append("fecha",dia);
@@ -174,9 +183,10 @@ export class SacarclieComponent implements OnInit {
       })
     }
   }
-  hora(){
-    this.horario=(<HTMLInputElement>document.getElementById("horarios")).value
-  }
+  /*hora(){
+    //this.horario=(<HTMLInputElement>document.getElementById("horarios")).value
+    console.log(this.horario);
+  }*/
   crearTurno(){
     this.screar="spinner-border spinner-border-sm"
     this.screartext="";
@@ -192,7 +202,7 @@ export class SacarclieComponent implements OnInit {
       if(resp=="Se han agotado los cupos para ese horario"){
         alert("Se han agotado los cupos para ese horario");	
         this.horarios=[]	
-        this.mostrarfecha(this.dia)
+        this.mostrarfecha(this.dia,'dia diaselected')
       }else{
         alert(resp);
         var dato=new FormData();

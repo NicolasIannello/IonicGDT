@@ -31,11 +31,17 @@
           <div class="mes">{{item.mes}}</div>
         </ng-template>
         <ng-template #elseBlock>
-          <button [class]=item.class (click)="mostrarfecha(item.fecha)" >{{item.dia}}</button>
+          <div *ngIf="item.class=='dia'; then thenBlock else elseBlock"></div>
+          <ng-template #thenBlock>
+            <button [class]=diacss (click)="mostrarfecha(item.fecha,item.class)" [id]=item.fecha>{{item.dia}}</button>
+          </ng-template>
+          <ng-template #elseBlock>
+            <button appBoton [class]=diaselecss (click)="mostrarfecha(item.fecha,item.class)" [id]=item.fecha>{{item.dia}}</button>
+          </ng-template>
         </ng-template>
       </span>
     </div>
-    <select class="form-select selec"  id="horarios" (input)=hora()>
+    <select class="form-select selec"  id="horarios" [(ngModel)]=horario>
       <option value="" hidden selected>Horarios del turno</option>
       <option *ngFor="let item of horarios" value={{item.Horario}}>{{item.Horario}}</option>
     </select>

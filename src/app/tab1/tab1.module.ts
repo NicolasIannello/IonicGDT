@@ -10,6 +10,7 @@ import { ClienteComponent } from './registro/cliente/cliente.component';
 import { EmpresaComponent } from './registro/empresa/empresa.component';
 import { SacarclieComponent } from './sacarclie/sacarclie.component';
 import { CrearturnoComponent } from './crearturno/crearturno.component';
+import { BotonDirective } from '../directivas/boton.directive';
 
 @NgModule({
   imports: [
@@ -19,6 +20,6 @@ import { CrearturnoComponent } from './crearturno/crearturno.component';
     ExploreContainerComponentModule,
     Tab1PageRoutingModule
   ],
-  declarations: [Tab1Page,ClienteComponent,EmpresaComponent,SacarclieComponent,CrearturnoComponent]
+  declarations: [Tab1Page,ClienteComponent,EmpresaComponent,SacarclieComponent,CrearturnoComponent,BotonDirective]
 })
 export class Tab1PageModule {}
