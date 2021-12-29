@@ -7,7 +7,7 @@ import { EmpresaService } from 'src/app/servicios/empresa.service';
   styleUrls: ['./turnos.component.scss'],
 })
 export class TurnosComponent implements OnInit {
-  ID: string = JSON.parse(localStorage.getItem('ID') || '{}');
+  ID: string;
 	Turnos: Array<any> = [];
   typeDelim:string="text"
   selim:string="Eliminar"
@@ -15,7 +15,9 @@ export class TurnosComponent implements OnInit {
   tipoelim:string="Codigo agrupador"
   datoelim:string=""
 
-  constructor(public api:EmpresaService) { }
+  constructor(public api:EmpresaService) { 
+    this.ID = JSON.parse(localStorage.getItem('ID') || '{}');
+  }
 
   ngOnInit() {
     const formData = new FormData

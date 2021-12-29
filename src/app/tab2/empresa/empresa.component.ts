@@ -8,12 +8,14 @@ import { EmpresaService } from 'src/app/servicios/empresa.service';
   styleUrls: ['./empresa.component.scss'],
 })
 export class EmpresaComponent implements OnInit {
-  ID: string = JSON.parse(localStorage.getItem('ID') || '{}');
+  ID: string;
   User: Array<any> = [{ NombreUsuario: "Usuario" }];
   cant:number|string="";
   refre:string=""
 
-  constructor(private router: Router,public api:EmpresaService) { }
+  constructor(private router: Router,public api:EmpresaService) { 
+    this.ID = JSON.parse(localStorage.getItem('ID') || '{}');
+  }
 
   ngOnInit() {
     if (localStorage.getItem('Tipo') != 'empresa') {

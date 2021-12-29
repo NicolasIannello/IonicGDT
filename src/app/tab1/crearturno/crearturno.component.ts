@@ -7,7 +7,7 @@ import { EmpresaService } from 'src/app/servicios/empresa.service';
   styleUrls: ['./crearturno.component.scss'],
 })
 export class CrearturnoComponent implements OnInit {
-  ID: string = JSON.parse(localStorage.getItem('ID') || '{}');
+  ID: string;
   screar:string=""
   screartext:string="Crear"
   servicios:Array<any>=[]
@@ -25,7 +25,9 @@ export class CrearturnoComponent implements OnInit {
   horainicio:string=""
   horafin:string=""
 
-  constructor(public api:EmpresaService) { }
+  constructor(public api:EmpresaService) { 
+	this.ID = JSON.parse(localStorage.getItem('ID') || '{}');
+  }
 
   ngOnInit() {
     this.api.cargarServicios().subscribe(resp=>{

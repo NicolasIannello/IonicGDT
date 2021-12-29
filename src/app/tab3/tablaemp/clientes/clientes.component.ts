@@ -7,7 +7,7 @@ import { EmpresaService } from 'src/app/servicios/empresa.service';
   styleUrls: ['./clientes.component.scss'],
 })
 export class ClientesComponent implements OnInit {
-  ID: string = JSON.parse(localStorage.getItem('ID') || '{}');
+  ID: string;
 	Turnos: Array<any> = [];
   scarg:string="Cargar"
   scarclass:string=""
@@ -17,7 +17,9 @@ export class ClientesComponent implements OnInit {
   cliente:string=""
   servicio:string=""
 
-  constructor(public api:EmpresaService) { }
+  constructor(public api:EmpresaService) { 
+    this.ID = JSON.parse(localStorage.getItem('ID') || '{}');
+  }
 
   ngOnInit() {
     const formData = new FormData

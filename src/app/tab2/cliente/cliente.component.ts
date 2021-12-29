@@ -8,13 +8,15 @@ import { ClienteService } from 'src/app/servicios/cliente.service';
   styleUrls: ['./cliente.component.scss'],
 })
 export class ClienteComponent implements OnInit {
-  ID: string = JSON.parse(localStorage.getItem('ID') || '{}');
+  ID: string;
   User: Array<any> = [{ NombreUsuario: "Usuario" }];
   Turnos:Array<any>=[];
   cant:number|string="";
   refre:string=""
 
-  constructor(private router: Router,public api:ClienteService) { }
+  constructor(private router: Router,public api:ClienteService) { 
+    this.ID = JSON.parse(localStorage.getItem('ID') || '{}');
+  }
 
   ngOnInit() {
     if (localStorage.getItem('Tipo') != 'cliente') {

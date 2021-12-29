@@ -7,12 +7,14 @@ import { ClienteService } from 'src/app/servicios/cliente.service';
   styleUrls: ['./tablaclie.component.scss'],
 })
 export class TablaclieComponent implements OnInit {
-  ID: string = JSON.parse(localStorage.getItem('ID') || '{}');
+  ID: string;
   Turnos:Array<any>=[];
   claseTabla:string="table table-bordered table-striped table-wrapper-scroll-y my-custom-scrollbar tabla"
   claseBox:string="box"
 
-  constructor(public api:ClienteService) { }
+  constructor(public api:ClienteService) { 
+    this.ID = JSON.parse(localStorage.getItem('ID') || '{}');
+  }
 
   ngOnInit() {    
     const formData = new FormData
