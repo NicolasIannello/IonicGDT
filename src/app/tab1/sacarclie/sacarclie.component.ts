@@ -37,7 +37,7 @@ export class SacarclieComponent implements OnInit {
   claseant:string=""
 
   constructor(public api:ClienteService) { 
-    this.ID= JSON.parse(localStorage.getItem('ID') || '{}');
+    //this.ID= JSON.parse(localStorage.getItem('ID') || '{}');
   }
 
   ngOnInit() {
@@ -199,7 +199,7 @@ export class SacarclieComponent implements OnInit {
     dato.append("nom",this.nombreclicked);
     dato.append("fecha",this.dia);
     dato.append("horario",this.horario);
-    dato.append("ID",this.ID);
+    dato.append("ID",JSON.parse(localStorage.getItem('ID') || '{}'));
 
     this.api.crearTurno(dato).subscribe(resp=>{
       if(resp=="Se han agotado los cupos para ese horario"){
@@ -209,7 +209,7 @@ export class SacarclieComponent implements OnInit {
       }else{
         alert(resp);
         var dato=new FormData();
-        dato.append("ID",this.ID);
+        dato.append("ID",JSON.parse(localStorage.getItem('ID') || '{}'));
         this.api.cargarTurnos(dato).subscribe(resp=>{
           this.Turnos=resp
           //this.CTurnos.emit(this.Turnos);

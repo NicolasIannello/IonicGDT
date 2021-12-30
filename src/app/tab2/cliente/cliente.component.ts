@@ -15,7 +15,7 @@ export class ClienteComponent implements OnInit {
   refre:string=""
 
   constructor(private router: Router,public api:ClienteService) { 
-    this.ID = JSON.parse(localStorage.getItem('ID') || '{}');
+    //this.ID = JSON.parse(localStorage.getItem('ID') || '{}');
   }
 
   ngOnInit() {
@@ -23,7 +23,7 @@ export class ClienteComponent implements OnInit {
 			this.router.navigate(['']);
 		}
 		const formData = new FormData
-		formData.append("ID", this.ID);
+		formData.append("ID", JSON.parse(localStorage.getItem('ID') || '{}'));
 
     this.api.traernom(formData).subscribe(resp=>{
       this.User=resp;
@@ -37,7 +37,7 @@ export class ClienteComponent implements OnInit {
   refresh(){
     this.refre="rotate"
     const formData = new FormData
-		formData.append("ID", this.ID);
+		formData.append("ID", JSON.parse(localStorage.getItem('ID') || '{}'));
     this.api.cargarTurnos(formData).subscribe(resp=>{
       this.Turnos=resp
       this.cant=this.Turnos.length

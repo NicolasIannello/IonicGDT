@@ -18,12 +18,12 @@ export class ClientesComponent implements OnInit {
   servicio:string=""
 
   constructor(public api:EmpresaService) { 
-    this.ID = JSON.parse(localStorage.getItem('ID') || '{}');
+    //this.ID = JSON.parse(localStorage.getItem('ID') || '{}');
   }
 
   ngOnInit() {
     const formData = new FormData
-		formData.append("ID", this.ID);
+		formData.append("ID", JSON.parse(localStorage.getItem('ID') || '{}'));
 
     this.api.cargarClientes(formData).subscribe(resp =>{
       this.Turnos=resp
@@ -37,7 +37,7 @@ export class ClientesComponent implements OnInit {
   doRefresh(event) {
     console.log('Begin async operation');
     const formData = new FormData
-		formData.append("ID", this.ID);
+		formData.append("ID", JSON.parse(localStorage.getItem('ID') || '{}'));
 
     this.api.cargarClientes(formData).subscribe(resp =>{
       this.Turnos=resp
@@ -61,7 +61,7 @@ export class ClientesComponent implements OnInit {
 			formData.append("servicio",this.servicio);
 			formData.append("time",this.hora);
 			formData.append("cliente",this.cliente);
-			formData.append("ID",this.ID);
+			formData.append("ID",JSON.parse(localStorage.getItem('ID') || '{}'));
 
 			this.api.crearCliente(formData).subscribe(resp=>{
 				if(resp=="Usuario no encontrado"  || resp=="No se encontro un turno disponible" || resp=="Ya existe un turno vinculado a esa cuenta en dicho horario"){

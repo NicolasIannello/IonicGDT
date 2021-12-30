@@ -14,7 +14,7 @@ export class EmpresaComponent implements OnInit {
   refre:string=""
 
   constructor(private router: Router,public api:EmpresaService) { 
-    this.ID = JSON.parse(localStorage.getItem('ID') || '{}');
+    //this.ID = JSON.parse(localStorage.getItem('ID') || '{}');
   }
 
   ngOnInit() {
@@ -22,7 +22,7 @@ export class EmpresaComponent implements OnInit {
 			this.router.navigate(['']);
 		}
 		const formData = new FormData
-		formData.append("ID", this.ID);
+		formData.append("ID", JSON.parse(localStorage.getItem('ID') || '{}'));
 
     this.api.traernom(formData).subscribe(resp=>{
       this.User=resp;
@@ -35,7 +35,7 @@ export class EmpresaComponent implements OnInit {
   refresh(){
     this.refre="rotate"
     const formData = new FormData
-		formData.append("ID", this.ID);
+		formData.append("ID", JSON.parse(localStorage.getItem('ID') || '{}'));
     this.api.CargarTurnos(formData).subscribe(resp=>{
       this.cant=resp.length
       this.refre=""

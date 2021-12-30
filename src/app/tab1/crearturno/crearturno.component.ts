@@ -26,7 +26,7 @@ export class CrearturnoComponent implements OnInit {
   horafin:string=""
 
   constructor(public api:EmpresaService) { 
-	this.ID = JSON.parse(localStorage.getItem('ID') || '{}');
+	//this.ID = JSON.parse(localStorage.getItem('ID') || '{}');
   }
 
   ngOnInit() {
@@ -62,7 +62,7 @@ export class CrearturnoComponent implements OnInit {
 			formData.append("HoraFin", this.horafin);
 			formData.append("DuracionMin", this.duracion);
 			formData.append("Capacidad", String(this.capacidad));
-			formData.append("ID", this.ID);
+			formData.append("ID", JSON.parse(localStorage.getItem('ID') || '{}'));
 
 			this.api.crearTurno(formData).subscribe(resp => {
 				if (resp == "superpuesto") {

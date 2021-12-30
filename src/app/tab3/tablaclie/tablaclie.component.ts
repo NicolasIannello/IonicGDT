@@ -13,12 +13,12 @@ export class TablaclieComponent implements OnInit {
   claseBox:string="box"
 
   constructor(public api:ClienteService) { 
-    this.ID = JSON.parse(localStorage.getItem('ID') || '{}');
+    //this.ID = JSON.parse(localStorage.getItem('ID') || '{}');
   }
 
   ngOnInit() {    
     const formData = new FormData
-		formData.append("ID", this.ID);
+		formData.append("ID", JSON.parse(localStorage.getItem('ID') || '{}'));
 
     this.api.cargarTurnos(formData).subscribe(resp=>{
       this.Turnos=resp
@@ -46,12 +46,12 @@ export class TablaclieComponent implements OnInit {
     if(confirm('Esta por eliminar un turno. Presione aceptar para continuar')){
       var dato=new FormData();
       dato.append("IDtce",id);
-      dato.append("IDclie",this.ID);
+      dato.append("IDclie",JSON.parse(localStorage.getItem('ID') || '{}'));
 
       this.api.Eliminar(dato).subscribe(resp=>{
         alert(resp);
         var dato=new FormData();
-	      dato.append("ID",this.ID);
+	      dato.append("ID",JSON.parse(localStorage.getItem('ID') || '{}'));
         this.api.cargarTurnos(dato).subscribe(resp=>{
           this.Turnos=resp
         })
@@ -61,7 +61,7 @@ export class TablaclieComponent implements OnInit {
   doRefresh(event) {
     console.log('Begin async operation');
     const formData = new FormData
-		formData.append("ID", this.ID);
+		formData.append("ID", JSON.parse(localStorage.getItem('ID') || '{}'));
 
     this.api.cargarTurnos(formData).subscribe(resp=>{
       this.Turnos=resp
