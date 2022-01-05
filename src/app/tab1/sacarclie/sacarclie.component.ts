@@ -36,6 +36,8 @@ export class SacarclieComponent implements OnInit {
   diaselecss:string="dia diaselected"
   claseant:string=""
 
+  cont:number=0;
+
   constructor(public api:ClienteService) { 
     //this.ID= JSON.parse(localStorage.getItem('ID') || '{}');
   }
@@ -111,6 +113,7 @@ export class SacarclieComponent implements OnInit {
 
               this.fechas=[]
               this.api.diaServicios(formData).subscribe(resp=>{
+                this.cont=0;
                 //var cantpasado=0
                 var diapasado=0
                 let mes={mes:""};
@@ -122,7 +125,7 @@ export class SacarclieComponent implements OnInit {
                   let x=new Date(); let hoy=x.getDate()-1 
                   let datomes={dia:hoy,class:"",fecha:""};
                   
-                  if( ( hoy<=new Date(resp[i].Dia).getDate() && new Date(x).getMonth()<=new Date(resp[i].Dia).getMonth() ) || new Date(x).getMonth()!=new Date(resp[i].Dia).getMonth() ){
+                  if( ( hoy<=new Date(resp[i].Dia).getDate() && new Date(x).getMonth()<=new Date(resp[i].Dia).getMonth() && new Date(x).getFullYear()<=new Date(resp[i].Dia).getFullYear() ) /*|| new Date(x).getMonth()!=new Date(resp[i].Dia).getMonth()*/ ){
                     /*switch(new Date(resp[i].Dia).getMonth()){
                       case 0:  datomes = {mes:"Enero",cant:31,mesnum:1,dia: resp[i].Dia,class:"dia diaselected"}; break;
                       case 1:  datomes = {mes:"Febrero",cant:28,mesnum:2,dia: resp[i].Dia,class:"dia diaselected"}; break;
@@ -154,7 +157,7 @@ export class SacarclieComponent implements OnInit {
                     }
                   }
                 }
-                console.log(resp);
+                //console.log(resp);
               })
               //console.log(this.fechas);
             });
@@ -220,7 +223,7 @@ export class SacarclieComponent implements OnInit {
     })
   }
   armarCalendario(diapasado,resp,datomes,i,cant,mes,messig,cantpasada){
-    if(/*this.mes!=mes &&*/ new Date(resp[i].Dia).getDate()+1>cant){
+    if(this.mes!=mes && new Date(resp[i].Dia).getDate()+1>=cant){
       //alert('1er '+new Date(resp[i].Dia).getDate()+1+' '+i+' '+' '+cant)
       var x = {mes: messig}; 
       this.fechas.push(x);
@@ -243,6 +246,10 @@ export class SacarclieComponent implements OnInit {
       this.mes=messig
     }else if (this.mes!=mes){
       //alert('2do '+new Date(resp[i].Dia).getDate()+1+' '+i+' '+' '+cant)
+      var hopl=new Date(resp[i].Dia)
+      hopl.setDate(hopl.getDate() - hopl.getDate() +1 )
+      //console.log( hopl.getDate());
+      
       var x = {mes: mes}; 
       this.fechas.push(x);
       var y = {dia: 'D',class:"dia",fecha: "semana"}; this.fechas.push(y);
@@ -252,7 +259,8 @@ export class SacarclieComponent implements OnInit {
       y = {dia: 'J',class:"dia",fecha: "semana"}; this.fechas.push(y);
       y = {dia: 'V',class:"dia",fecha: "semana"}; this.fechas.push(y);
       y = {dia: 'S',class:"dia",fecha: "semana"}; this.fechas.push(y);
-      switch (new Date(resp[i].Dia).getDay()) {
+      if(this.cont==0){
+        switch (new Date(resp[i].Dia).getDay()) {  
         case 6: y = {dia: '/',class:"dia",fecha: "fill"}; this.fechas.push(y);
         case 5: y = {dia: '/',class:"dia",fecha: "fill"}; this.fechas.push(y);
         case 4: y = {dia: '/',class:"dia",fecha: "fill"}; this.fechas.push(y);
@@ -260,7 +268,19 @@ export class SacarclieComponent implements OnInit {
         case 2: y = {dia: '/',class:"dia",fecha: "fill"}; this.fechas.push(y);
         case 1: y = {dia: '/',class:"dia",fecha: "fill"}; this.fechas.push(y);
         case 0: y = {dia: '/',class:"dia",fecha: "fill"}; this.fechas.push(y); break;
-      } 
+        }
+        this.cont++;
+      }else{
+        switch (hopl.getDay()-1) {  
+          case 6: y = {dia: '/',class:"dia",fecha: "fill"}; this.fechas.push(y);
+          case 5: y = {dia: '/',class:"dia",fecha: "fill"}; this.fechas.push(y);
+          case 4: y = {dia: '/',class:"dia",fecha: "fill"}; this.fechas.push(y);
+          case 3: y = {dia: '/',class:"dia",fecha: "fill"}; this.fechas.push(y);
+          case 2: y = {dia: '/',class:"dia",fecha: "fill"}; this.fechas.push(y);
+          case 1: y = {dia: '/',class:"dia",fecha: "fill"}; this.fechas.push(y);
+          case 0: y = {dia: '/',class:"dia",fecha: "fill"}; this.fechas.push(y); break;
+        } 
+      }
       this.mes=mes
     }
 
@@ -304,7 +324,7 @@ export class SacarclieComponent implements OnInit {
         datomes = {dia: new Date(resp[i].Dia).getDate()+1,class:"dia diaselected",fecha: resp[i].Dia};
         this.fechas.push(datomes);
         //alert(new Date(resp[i].Dia).getDate()+1+' '+i+' '+(resp.length-1)+' '+cant)
-        if(/*i==resp.length-1 &&*/ new Date(resp[i].Dia).getDate()+1<cant){
+        if(i==resp.length-1 && new Date(resp[i].Dia).getDate()+1<cant){
           for (let j = new Date(resp[i].Dia).getDate()+2; j <= cant; j++) {
             datomes = {dia: j,class:"dia",fecha: ""};
             this.fechas.push(datomes); 
