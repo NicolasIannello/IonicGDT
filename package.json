@@ -10,7 +10,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "prepush": "npm run build"
+    "prepush": "npm run build",
+    "preinstall": "npm i -g @angular/cli"
   },
   "private": true,
   "dependencies": {
