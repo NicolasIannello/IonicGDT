@@ -36,7 +36,6 @@
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4",
-    "ionic": "5.8.4",
     "@angular-devkit/build-angular": "~12.1.1",
     "typescript": "~4.2.4"
   },
