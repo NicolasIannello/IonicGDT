@@ -87,7 +87,7 @@ export class EmpresaComponent implements OnInit {
 			alert("Complete todos los campos");
 		}else if(this.contra!=this.contra2){
 			alert("Las contraseñas no coinciden");
-		}else if((this.mail.includes("@") && this.mail.includes(".com"))){
+		}else if(this.mail.match(/^(w{3}\.)?([A-z]||[0-9])+@([A-z]||[0-9]){1,10}\.com(\.[a-z]{2})?$/g)){
 			this.spinner = "spinner-border";
 			this.text = "";
 			
