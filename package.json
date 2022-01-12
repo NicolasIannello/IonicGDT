@@ -11,7 +11,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "preinstall": "npm install",
+    "preinstall": "npm i -g http-server && npm i -g @angular/cli",
     "prepush": "npm run build",
     "postinstall": "ng build --aot --prod"
   },
