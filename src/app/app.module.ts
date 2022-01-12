@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { FondoComponent } from './fondo/fondo.component';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -30,5 +31,6 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {}
