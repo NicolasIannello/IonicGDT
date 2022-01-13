@@ -5,15 +5,14 @@
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
-    "start": "npm start",
+    "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "prepush": "npm run build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "preinstall": "npm i -g http-server && npm i -g @angular/cli",
-    "postinstall": "npm run build"
+    "preinstall": "npm i -g http-server && npm i -g @angular/cli"
   },
   "private": true,
   "dependencies": {
