@@ -113,6 +113,7 @@ export class SacarclieComponent implements OnInit {
 
               this.fechas=[]
               this.api.diaServicios(formData).subscribe(resp=>{
+                this.mes='a';
                 this.cont=0;
                 //var cantpasado=0
                 var diapasado=0
@@ -125,7 +126,8 @@ export class SacarclieComponent implements OnInit {
                   let x=new Date(); let hoy=x.getDate()-1 
                   let datomes={dia:hoy,class:"",fecha:""};
                   
-                  if( ( hoy<=new Date(resp[i].Dia).getDate() && new Date(x).getMonth()<=new Date(resp[i].Dia).getMonth() && new Date(x).getFullYear()<=new Date(resp[i].Dia).getFullYear() ) /*|| new Date(x).getMonth()!=new Date(resp[i].Dia).getMonth()*/ ){
+                  if( new Date(x).getFullYear()<=new Date(resp[i].Dia).getFullYear() && (hoy<=new Date(resp[i].Dia).getDate() && new Date(x).getMonth()==new Date(resp[i].Dia).getMonth()) || (new Date(x).getMonth()<new Date(resp[i].Dia).getMonth()) ){
+                  //if( ( hoy<=new Date(resp[i].Dia).getDate() && new Date(x).getMonth()<=new Date(resp[i].Dia).getMonth() && new Date(x).getFullYear()<=new Date(resp[i].Dia).getFullYear() ) /*|| new Date(x).getMonth()!=new Date(resp[i].Dia).getMonth()*/ ){
                     /*switch(new Date(resp[i].Dia).getMonth()){
                       case 0:  datomes = {mes:"Enero",cant:31,mesnum:1,dia: resp[i].Dia,class:"dia diaselected"}; break;
                       case 1:  datomes = {mes:"Febrero",cant:28,mesnum:2,dia: resp[i].Dia,class:"dia diaselected"}; break;
@@ -223,7 +225,7 @@ export class SacarclieComponent implements OnInit {
     })
   }
   armarCalendario(diapasado,resp,datomes,i,cant,mes,messig,cantpasada){
-    if(this.mes!=mes && new Date(resp[i].Dia).getDate()+1>=cant){
+    if( new Date(resp[i].Dia).getDate()+1>cant){
       //alert('1er '+new Date(resp[i].Dia).getDate()+1+' '+i+' '+' '+cant)
       var x = {mes: messig}; 
       this.fechas.push(x);
