@@ -19,6 +19,11 @@ export class Tab2Page {
   }
 
   ngOnInit() {
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    }else{
+      window.location.replace("https://gdt-iannello.herokuapp.com/");
+    }
+
     if(localStorage.getItem('Tipo')=='cliente'){
       this.router.navigate(['/tabs/tab2/cliente']);
     }else if(localStorage.getItem('Tipo')=='empresa'){
