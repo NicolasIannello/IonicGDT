@@ -47,6 +47,8 @@ export class TablaclieComponent implements OnInit {
       var dato=new FormData();
       dato.append("IDtce",id);
       dato.append("IDclie",JSON.parse(localStorage.getItem('ID') || '{}'));
+      dato.append("cel","+549");
+      dato.append('env','false');
 
       this.api.Eliminar(dato).subscribe(resp=>{
         alert(resp);

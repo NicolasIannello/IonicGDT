@@ -38,6 +38,9 @@ export class SacarclieComponent implements OnInit {
 
   cont:number=0;
 
+  cel:string="";
+  elim:string="false";
+
   constructor(public api:ClienteService) { 
     //this.ID= JSON.parse(localStorage.getItem('ID') || '{}');
   }
@@ -205,6 +208,8 @@ export class SacarclieComponent implements OnInit {
     dato.append("fecha",this.dia);
     dato.append("horario",this.horario);
     dato.append("ID",JSON.parse(localStorage.getItem('ID') || '{}'));
+    dato.append("cel","+549");
+    dato.append('msgenv','false');
 
     this.api.crearTurno(dato).subscribe(resp=>{
       if(resp=="Se han agotado los cupos para ese horario"){
@@ -304,7 +309,7 @@ export class SacarclieComponent implements OnInit {
         }else{
           n=2;
         }
-        //alert(new Date(resp[i].Dia).getDate()+1+' '+cantpasada+' '+diapasado+' ')
+        console.log('1 ' +(new Date(resp[i].Dia).getDate()+1)+' '+cantpasada+' '+diapasado+' ')
         for (n; n < new Date(resp[i].Dia).getDate()+1; n++) { 
           datomes = {dia: n,class:"dia",fecha: ""};
           this.fechas.push(datomes); 
@@ -325,8 +330,13 @@ export class SacarclieComponent implements OnInit {
       }else{
         datomes = {dia: new Date(resp[i].Dia).getDate()+1,class:"dia diaselected",fecha: resp[i].Dia};
         this.fechas.push(datomes);
-        //alert(new Date(resp[i].Dia).getDate()+1+' '+i+' '+(resp.length-1)+' '+cant)
-        if(i==resp.length-1 && new Date(resp[i].Dia).getDate()+1<cant){
+        console.log('2 '+(new Date(resp[i].Dia).getDate()+1)+' i:'+i+' resp:'+(resp.length-1)+' cant:'+cant+' sigdia:'+sigdia)
+        if(/*i==resp.length-1 &&*/sigdia<new Date(resp[i].Dia).getDate()+1 && new Date(resp[i].Dia).getDate()+1<cant){
+          for (let j = new Date(resp[i].Dia).getDate()+2; j <= cant; j++) {
+            datomes = {dia: j,class:"dia",fecha: ""};
+            this.fechas.push(datomes); 
+          }
+        }else if(i==resp.length-1 && new Date(resp[i].Dia).getDate()+1<cant){
           for (let j = new Date(resp[i].Dia).getDate()+2; j <= cant; j++) {
             datomes = {dia: j,class:"dia",fecha: ""};
             this.fechas.push(datomes); 
