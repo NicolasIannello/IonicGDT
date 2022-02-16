@@ -149,12 +149,12 @@ export class SacarclieComponent implements OnInit {
                     switch(new Date(resp[i].Dia).getMonth()){
                       case 0: diapasado=this.armarCalendario(diapasado,resp,datomes,i,31,"Enero","Febrero",31);break;
                       case 1: diapasado=this.armarCalendario(diapasado,resp,datomes,i,28,"Febrero","Marzo",31);break;
-                      case 2: diapasado=this.armarCalendario(diapasado,resp,datomes,i,31,"mes","messig",28);break;
-                      case 3: diapasado=this.armarCalendario(diapasado,resp,datomes,i,30,"mes","messig",31);break;
-                      case 4: diapasado=this.armarCalendario(diapasado,resp,datomes,i,31,"mes","messig",30);break;
-                      case 5: diapasado=this.armarCalendario(diapasado,resp,datomes,i,30,"mes","messig",31);break;
-                      case 6: diapasado=this.armarCalendario(diapasado,resp,datomes,i,31,"mes","messig",30);break;
-                      case 7: diapasado=this.armarCalendario(diapasado,resp,datomes,i,31,"mes","messig",31);break;
+                      case 2: diapasado=this.armarCalendario(diapasado,resp,datomes,i,31,"Marzo","Abril",28);break;
+                      case 3: diapasado=this.armarCalendario(diapasado,resp,datomes,i,30,"Abril","Mayo",31);break;
+                      case 4: diapasado=this.armarCalendario(diapasado,resp,datomes,i,31,"Mayo","Junio",30);break;
+                      case 5: diapasado=this.armarCalendario(diapasado,resp,datomes,i,30,"Junio","Julio",31);break;
+                      case 6: diapasado=this.armarCalendario(diapasado,resp,datomes,i,31,"Julio","Agosto",30);break;
+                      case 7: diapasado=this.armarCalendario(diapasado,resp,datomes,i,31,"Agosto","Septiembre",31);break;
                       case 8: diapasado=this.armarCalendario(diapasado,resp,datomes,i,30,"Septiembre","Octubre",31);break;
                       case 9: diapasado=this.armarCalendario(diapasado,resp,datomes,i,31,"Octubre","Noviembre",30);break;
                       case 10: diapasado=this.armarCalendario(diapasado,resp,datomes,i,30,"Noviembre","Diciembre",31);break;
@@ -309,7 +309,7 @@ export class SacarclieComponent implements OnInit {
         }else{
           n=2;
         }
-        console.log('1 ' +(new Date(resp[i].Dia).getDate()+1)+' '+cantpasada+' '+diapasado+' ')
+        //console.log('1 ' +(new Date(resp[i].Dia).getDate()+1)+' '+cantpasada+' '+diapasado+' ')
         for (n; n < new Date(resp[i].Dia).getDate()+1; n++) { 
           datomes = {dia: n,class:"dia",fecha: ""};
           this.fechas.push(datomes); 
@@ -330,7 +330,7 @@ export class SacarclieComponent implements OnInit {
       }else{
         datomes = {dia: new Date(resp[i].Dia).getDate()+1,class:"dia diaselected",fecha: resp[i].Dia};
         this.fechas.push(datomes);
-        console.log('2 '+(new Date(resp[i].Dia).getDate()+1)+' i:'+i+' resp:'+(resp.length-1)+' cant:'+cant+' sigdia:'+sigdia)
+        //console.log('2 '+(new Date(resp[i].Dia).getDate()+1)+' i:'+i+' resp:'+(resp.length-1)+' cant:'+cant+' sigdia:'+sigdia)
         if(/*i==resp.length-1 &&*/sigdia<new Date(resp[i].Dia).getDate()+1 && new Date(resp[i].Dia).getDate()+1<cant){
           for (let j = new Date(resp[i].Dia).getDate()+2; j <= cant; j++) {
             datomes = {dia: j,class:"dia",fecha: ""};
