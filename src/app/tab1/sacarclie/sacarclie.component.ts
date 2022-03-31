@@ -207,7 +207,7 @@ export class SacarclieComponent implements OnInit {
     dato.append("nom",this.nombreclicked);
     dato.append("fecha",this.dia);
     dato.append("horario",this.horario);
-    dato.append("ID",JSON.parse(localStorage.getItem('ID') || '{}'));
+    dato.append("ID",(localStorage.getItem('ID') || '{}'));
     dato.append("cel","+549");
     dato.append('msgenv','false');
 
@@ -219,7 +219,7 @@ export class SacarclieComponent implements OnInit {
       }else{
         alert(resp);
         var dato=new FormData();
-        dato.append("ID",JSON.parse(localStorage.getItem('ID') || '{}'));
+        dato.append("ID",(localStorage.getItem('ID') || '{}'));
         this.api.cargarTurnos(dato).subscribe(resp=>{
           this.Turnos=resp
           //this.CTurnos.emit(this.Turnos);

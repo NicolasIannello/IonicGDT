@@ -62,7 +62,7 @@ export class CrearturnoComponent implements OnInit {
 			formData.append("HoraFin", this.horafin);
 			formData.append("DuracionMin", this.duracion);
 			formData.append("Capacidad", String(this.capacidad));
-			formData.append("ID", JSON.parse(localStorage.getItem('ID') || '{}'));
+			formData.append("ID", (localStorage.getItem('ID') || '{}'));
 
 			this.api.crearTurno(formData).subscribe(resp => {
 				if (resp == "superpuesto") {

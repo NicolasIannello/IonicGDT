@@ -21,7 +21,7 @@ export class TurnosComponent implements OnInit {
 
   ngOnInit() {
     const formData = new FormData
-		formData.append("ID", JSON.parse(localStorage.getItem('ID') || '{}'));
+		formData.append("ID", (localStorage.getItem('ID') || '{}'));
 
     this.api.CargarTurnos(formData).subscribe(resp =>
       this.Turnos=resp      
@@ -30,7 +30,7 @@ export class TurnosComponent implements OnInit {
   doRefresh(event) {
     console.log('Begin async operation');
     const formData = new FormData
-		formData.append("ID", JSON.parse(localStorage.getItem('ID') || '{}'));
+		formData.append("ID", (localStorage.getItem('ID') || '{}'));
 
     this.api.CargarTurnos(formData).subscribe(resp =>{
       this.Turnos=resp
@@ -51,7 +51,7 @@ export class TurnosComponent implements OnInit {
 				const formData = new FormData
 				formData.append("dato", this.datoelim);
 				formData.append("tipo", this.tipoelim);
-				formData.append("ID", JSON.parse(localStorage.getItem('ID') || '{}'));
+				formData.append("ID", (localStorage.getItem('ID') || '{}'));
 
 				this.api.Eliminar(formData).subscribe((resp) => {
 					if (resp == "no encontrado") {
