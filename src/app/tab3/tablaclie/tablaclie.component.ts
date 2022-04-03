@@ -44,6 +44,8 @@ export class TablaclieComponent implements OnInit {
   }
   Eliminar(id:any){
     if(confirm('Esta por eliminar un turno. Presione aceptar para continuar')){
+      document.getElementById('spinnerelim'+id).setAttribute("name",'sync');
+      document.getElementById('spinnerelim'+id).className='rotate';
       var dato=new FormData();
       dato.append("IDtce",id);
       dato.append("IDclie",(localStorage.getItem('ID') || '{}'));
@@ -51,6 +53,8 @@ export class TablaclieComponent implements OnInit {
       dato.append('env','false');
 
       this.api.Eliminar(dato).subscribe(resp=>{
+        document.getElementById('spinnerelim'+id).setAttribute("name",'trash');
+        document.getElementById('spinnerelim'+id).className='';
         alert(resp);
         var dato=new FormData();
 	      dato.append("ID",(localStorage.getItem('ID') || '{}'));
