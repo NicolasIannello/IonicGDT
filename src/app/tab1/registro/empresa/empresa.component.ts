@@ -32,7 +32,7 @@ export class EmpresaComponent implements OnInit {
 	)
 
     this.map= new google.maps.Map(
-		document.getElementById("Mapa") as HTMLElement,
+		document.getElementById("Mapab") as HTMLElement,
 		{ 
 			center: { lat: -34.61199298552686, lng: -58.44019025298453 },
 			fullscreenControl: false,

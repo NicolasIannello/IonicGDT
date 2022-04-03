@@ -22,7 +22,7 @@
     <option value="" hidden selected>Localidad</option>
     <option *ngFor="let item of Localidades" value={{item.LocalidadID}}>{{item.Descripcion}}</option>
   </select>
-  <div id="Mapa"></div>
+  <div id="Mapab"></div>
   <div>
     <textarea name="ubicacion" class="form-control border" placeholder="Puede ingresar su domicilio aqui o indicarlo por medio del mapa" rows="4" cols="50" [(ngModel)]=ubicacion></textarea> 
     <button class="btnubi" name="btnubi" (click)=ReGeo()>
